@@ -35,6 +35,28 @@
   
  <!-- <iframe width="560" height="315" style="width: 100%; min-height: 100vh;" src="https://www.youtube.com/embed/cbgQ0ja1BQs?loop=1" title="Ridgeway High School Reunion - Slideshow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 -->
+  
+  <script>
+      var tag = document.createElement('script');
+          tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      function onYouTubeIframeAPIReady() {
+          document.querySelectorAll('.ytplayer').forEach((item) => {
+              new YT.Player(item, {
+                events: {
+                 'onReady': (event) => {
+                     event.target.playVideo();
+                     event.target.mute();
+                 }
+             }
+         })
+     })
+ }
+
+// Nevermind - fixed it!
+  </script>
 </body>
 
 </html>
